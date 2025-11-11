@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teknik Airbag - İstanbul'un güvenilir airbag tamiri, beyin kodlama ve torpido kaplama uzmanı. Mobil servis hizmeti ile yerinde çözüm.">
+    <meta name="keywords" content="İstanbul airbag tamiri, airbag beyin kodlama, torpido kaplama, airbag tamiri, mobil airbag servisi, teknik airbag">
+    <title>Teknik Airbag - Güvenliğiniz, İlk Önceliğimiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0A1C4A;
+            --accent-color: #FF9900;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3d7a 100%);
+            color: var(--white);
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #ff8800;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 153, 0, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 1rem auto;
+        }
+
+        /* Mobile Service Highlight */
+        .mobile-service {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #ffaa33 100%);
+            color: var(--white);
+            padding: 60px 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-service::before {
+            content: '🚗';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            right: -50px;
+            top: -50px;
+        }
+
+        .mobile-service h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .mobile-service p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* USP Section */
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .usp-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .usp-item:hover {
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .usp-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .usp-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--bg-light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stars {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item .icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .contact-form {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-color);
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Teknik Airbag Logo">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#anasayfa">Anasayfa</a></li>
+                <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#yorumlar">Yorumlar</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobileMenu">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="anasayfa">
+        <h1>Güvenliğiniz, İlk Önceliğimiz</h1>
+        <p class="tagline">İstanbul'un Airbag Uzmanı: Güvenli Yolculuk Garanti</p>
+        <div class="cta-buttons">
+            <a href="#iletisim" class="btn btn-primary">Hemen Randevu Al</a>
+            <a href="https://wa.me/905xxxxxxxxx" class="btn btn-secondary">WhatsApp ile İletişim</a>
+        </div>
+    </section>
+
+    <!-- Mobile Service Highlight -->
+    <section class="mobile-service">
+        <h2>🚗 İstanbul Genelinde Mobil Servis</h2>
+        <p>Hasarlı aracınızı çekmekle uğraşmayın! Uzman ekibimiz size gelsin.</p>
+        <p><strong>✓ Ücretsiz Keşif</strong> | <strong>✓ Yerinde Sökme & Montaj</strong> | <strong>✓ Hızlı Müdahale</strong></p>
+        <a href="#iletisim" class="btn btn-primary">Mobil Ekip Çağır</a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hizmetler">
+        <h2 class="section-title">Hizmetlerimiz</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">🛡️</div>
+                <h3>Airbag Tamiri ve Değişimi</h3>
+                <p>Kaza sonrası patlayan hava yastıklarınızı orijinal güvenlik standartlarına uygun olarak tamir ediyor, yeniden çalışır hale getiriyoruz.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">💻</div>
+                <h3>Airbag Beyin Kodlama</h3>
+                <p>Crash Data veren beyin kontrol ünitelerinizi gelişmiş ekipmanlarla sıfırlıyor, yeniden programlıyoruz.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🎨</div>
+                <h3>Torpido Kaplama/Tamiri</h3>
+                <p>Hasar gören torpido panellerinizi orijinal dokusuna ve rengine sadık kalarak kusursuz şekilde kaplıyor ve tamir ediyoruz.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🔧</div>
+                <h3>Emniyet Kemeri Tamiri</h3>
+                <p>Kilitlenen veya piroteknik sistemi devreye giren emniyet kemerlerinizin tamiri ve onarımını yapıyoruz.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">⚙️</div>
+                <h3>Airbag Sargı (Zemberek) Tamiri</h3>
+                <p>Direksiyondan gelen sinyallerin kesilmesine neden olan spiral kablonun tamirini gerçekleştiriyoruz.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🔍</div>
+                <h3>Arıza Tespiti ve Ekspertiz</h3>
+                <p>Airbag arıza ışığının yanma nedenini hızlı ve doğru bir şekilde tespit ediyor, çözüm sunuyoruz.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">💺</div>
+                <h3>Koltuk Airbag Tamiri</h3>
+                <p>Yan darbe sensörleri ile bağlantılı koltuk içindeki hava yastıklarının tamiri veya değişimini yapıyoruz.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🚙</div>
+                <h3>Mobil Servis Hizmeti</h3>
+                <p>İstanbul genelinde yerinde airbag sökme, montaj ve keşif hizmetimizle size geliyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="background: var(--bg-light);">
+        <h2 class="section-title">Neden Bizi Seçmelisiniz?</h2>
+        <div class="usp-grid">
+            <div class="usp-item">
+                <div class="icon">✅</div>
+                <h3>İşçilik Garantisi</h3>
+                <p>Tüm tamir ve kaplama işlemlerimizde işçilik garantisi sunuyoruz.</p>
+            </div>
+
+            <div class="usp-item">
+                <div class="icon">👨‍🔧</div>
+                <h3>Uzman Kadro</h3>
+                <p>Eğitimli ve sertifikalı teknik kadromuzla en kaliteli hizmeti veriyoruz.</p>
+            </div>
+
+            <div class="usp-item">
+                <div class="icon">⚡</div>
+                <h3>Hızlı Çözüm</h3>
+                <p>Acil durumlarda hızlı müdahale ve kısa sürede çözüm garantisi.</p>
+            </div>
+
+            <div class="usp-item">
+                <div class="icon">🏆</div>
+                <h3>Kalite Standartları</h3>
+                <p>Orijinal parça kullanımı ve yüksek kalite standartlarına uygunluk.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="yorumlar">
+        <h2 class="section-title">Müşterilerimiz Ne Diyor?</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">Kaza sonrası arabanın torpidosu ve airbag'i patlamıştı. İstanbul Airbag sayesinde her şey eski haline döndü. Hem kaliteli hem de çok hızlılar. Teşekkürler!</p>
+                <p class="testimonial-author">- Mehmet Y., Kadıköy</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">Mobil servis hizmeti harika! Trafikte çekici aramakla uğraşmadan evimin önünde işimi hallettiler. Kesinlikle tavsiye ederim.</p>
+                <p class="testimonial-author">- Ayşe K., Beşiktaş</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">Airbag beyin kodlama işlemi için gittim. Çok profesyoneller, işlerini gerçekten iyi biliyorlar. Fiyatlar da gayet makul.</p>
+                <p class="testimonial-author">- Can D., Şişli</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="hakkimizda">
+        <h2 class="section-title">Hakkımızda</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>İstanbul'un Güvenilir Airbag Uzmanı - Teknik Airbag</h3>
+                <p>10 yılı aşkın deneyimimizle İstanbul ve çevresinde airbag tamiri, beyin kodlama ve torpido kaplama konularında uzmanlaşmış bir ekibiz.</p>
+                <p>Uzman ve sertifikalı teknik kadromuzla, en son teknoloji ekipmanları kullanarak aracınızın güvenlik sistemlerini en üst seviyede tamir ediyoruz.</p>
+                <p>Müşteri memnuniyetini ön planda tutarak, kaliteli işçilik ve garanti ile hizmet veriyoruz.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-box">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Yıl Deneyim</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Mutlu Müşteri</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Müşteri Memnuniyeti</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Destek</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" style="background: var(--bg-light);">
+        <h2 class="section-title">İletişim & Randevu</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <div>
+                        <strong>Adres</strong><br>
+                        İstanbul, Türkiye<br>
+                        (Mobil Servis ile Tüm İstanbul'a Gidiyoruz)
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <div>
+                        <strong>Telefon</strong><br>
+                        <a href="tel:+905xxxxxxxxx">0850 XXX XX XX</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">📧</div>
+                    <div>
+                        <strong>E-posta</strong><br>
+                        <a href="mailto:info@teknikairbag.com">info@teknikairbag.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="icon">⏰</div>
+                    <div>
+                        <strong>Çalışma Saatleri</strong><br>
+                        Pazartesi - Cumartesi: 09:00 - 19:00<br>
+                        Pazar: Randevulu
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;">Hızlı Randevu Formu</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Ad Soyad *</label>
+                        <input type="text" required placeholder="Adınız Soyadınız">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefon *</label>
+                        <input type="tel" required placeholder="0XXX XXX XX XX">
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-posta</label>
+                        <input type="email" placeholder="ornek@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hizmet Türü</label>
+                        <input type="text" placeholder="Airbag Tamiri, Beyin Kodlama, vb.">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mesajınız</label>
+                        <textarea placeholder="Lütfen aracınız ve sorununuz hakkında bilgi verin..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Randevu Talebi Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Teknik Airbag</h3>
+                <p>İstanbul'un güvenilir airbag tamiri ve torpido kaplama uzmanı. Güvenliğiniz için buradayız.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Hızlı Linkler</h3>
+                <ul>
+                    <li><a href="#anasayfa">Anasayfa</a></li>
+                    <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                    <li><a href="#hakkimizda">Hakkımızda</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Hizmetler</h3>
+                <ul>
+                    <li>Airbag Tamiri</li>
+                    <li>Beyin Kodlama</li>
+                    <li>Torpido Kaplama</li>
+                    <li>Mobil Servis</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <ul>
+                    <li>📞 0850 XXX XX XX</li>
+                    <li>📧 info@teknikairbag.com</li>
+                    <li>📍 İstanbul, Türkiye</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Teknik Airbag. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/905xxxxxxxxx" class="whatsapp-float" target="_blank" title="WhatsApp ile iletişime geç">
+        💬
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Form submission (you can integrate with a backend later)
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Randevu talebiniz alındı! En kısa sürede size dönüş yapacağız.');
+            e.target.reset();
+        });
+
+        // Smooth scroll with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
